@@ -1,0 +1,3 @@
+- used named functions for jquery events
+- use variables instead of class names
+- 
