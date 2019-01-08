@@ -1,0 +1,16 @@
+body {
+    padding-top: 5rem;
+  }
+  .starter-template {
+    padding: 1rem 1rem;
+    text-align: center;
+  }
+
+  .section {
+    padding: 1rem 1rem;
+    text-align: center;
+  }
+
+  .answer-list {
+    list-style-type: none;
+  }
