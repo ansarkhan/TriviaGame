@@ -16,7 +16,7 @@ Element strings for jQuery functions
 var elements = {
     startGameBtn: '#start-game',
     timerId: '#timer',
-    stopQuestion: '#stop-question',
+    pauseGame: '#pause-game',
 
     //new elements
 };
@@ -67,6 +67,7 @@ var startTimer = function () {
 
 };
 
+
 // Main SetTimeout
 
 var reset = function() {
@@ -76,8 +77,9 @@ var mainTimer = function() {
     setTimeout(reset, 3000);
 }
 
+    // var answerList = '<li>' + element.answers.join('</li><li>') + '</li>';
 
-
+    // $("ul li").each(function() { optionTexts.push($(this).text()) });
 
 /*
 Display Functions
@@ -87,18 +89,25 @@ Display Functions
 
 var printQuestions = function() {
     questions.forEach(function (element, index, collection) {
-        var questionDiv = $("<div>");
-        var answerDiv = $("<ol start='1' />")
+        var questionDiv = $("<div class='question-container'>");
+        var answerDiv = $("<form class='answer-container'>");
+        answerDiv.attr("id", "question-" + index);
 
-        var answerList = '<li>' + element.answers.join('</li><li>') + '</li>';
+        questionDiv.append(element.question);
 
-        questionDiv.text(element.question);
-        answerDiv.html(answerList);
-
-        answerDiv.addClass("answer-list");
-
+        var newAnsArr = [];
+        var answerListF = function(array) {
+            for (i=0; i<array.length; i++) {
+                newAnsArr.push(`<input type='radio' value=question-${index}  name=question-${index} id=${i}> ${array[i]} <br />`);
+            } 
+        };
+        answerListF(element.answers);
+        answerDiv.append(newAnsArr);
+    
         $('#question').append(questionDiv);
-        $('#question').append(answerDiv);
+        $(questionDiv).append(answerDiv);
+
+
     });
 }
 
@@ -117,15 +126,25 @@ $(document).on('click', '#start-game', function(){
     console.log("game started!");
 });
 
-$(document).on('click', elements.stopQuestion, function() {
+$(document).on('click', elements.pauseGame, function() {
     clearInterval(timerS);
 });
 
+$('.question-container').click(function() {
+    if($('#answer-0').is(':checked')) { alert("it's checked"); }
+ });
+
+ $(document).on('click', function() {
+    if($("input:radio").is(':checked')) {
+        var id = $(this).attr('id');
+        console.log(id);
+    }
+})
 
 // https://codeburst.io/a-countdown-timer-in-pure-javascript-f3cdaae1a1a3
 
 
-
+// https://www.dyn-web.com/tutorials/forms/radio/get-selected.php
 
 
 
