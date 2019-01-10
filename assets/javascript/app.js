@@ -28,19 +28,29 @@ var incorrectQ = 0;
 var currentQ;
 var questions = [
     {
-        question: "This is the first question",
-        answers: ["q1-answer1", "q1-answer2", "q1-answer3", "q1-answer4"],
+        question: "Who is the creator of JavaScript?",
+        answers: ["Steve Wozniak", "Steve Jobs", "Brendan Eich", "Steve-O"],
+        correctA: 2 
+    },
+    {
+        question: "In what year was ES5 released?",
+        answers: ["2005", "2009", "2011", "2015"],
+        correctA: 1
+    },
+    {
+        question: "JavaScript was born out of the Java Project",
+        answers: ["True", "False"],
         correctA: 1 
     },
     {
-        question: "This is the second question",
-        answers: ["q2-answer1", "q2-answer2", "q2-answer3", "q2-answer4"],
-        correctA: 1 
+        question: "Is JavaScript a front end, back end or full stack language?",
+        answers: ["Front end", "Back end", "Full stack"],
+        correctA: 2 
     },
     {
-        question: "This is the third question",
-        answers: ["q3-answer1", "q3-answer2", "q3-answer3", "q3-answer4"],
-        correctA: 3 
+        question: "Is Null an object?",
+        answers: ["Yes", "No"],
+        correctA: 0 
     },
 
 ];
@@ -58,7 +68,6 @@ var startTimer = function () {
     function calculate() {
         if (time > 0) {
             time--;
-            console.log(time);
             $("#timer").text(time); //move out of function
         } else {
             // reset game
