@@ -16,7 +16,7 @@ Element strings for jQuery functions
 var elements = {
     startGameBtn: '#start-game',
     timerId: '#timer',
-    pauseGame: '#pause-game',
+    submitGame: '#submit-game',
 
     //new elements
 };
@@ -77,10 +77,6 @@ var mainTimer = function() {
     setTimeout(reset, 3000);
 }
 
-    // var answerList = '<li>' + element.answers.join('</li><li>') + '</li>';
-
-    // $("ul li").each(function() { optionTexts.push($(this).text()) });
-
 /*
 Display Functions
 */
@@ -98,7 +94,7 @@ var printQuestions = function() {
         var newAnsArr = [];
         var answerListF = function(array) {
             for (i=0; i<array.length; i++) {
-                newAnsArr.push(`<input type='radio' value=question-${index}  name=question-${index} id=${i}> ${array[i]} <br />`);
+                newAnsArr.push(`<input type='radio' value=${i} name=question-${index} class='radio-button-${index}'> ${array[i]} <br />`);
             } 
         };
         answerListF(element.answers);
@@ -121,50 +117,30 @@ $("#score").append(counter);
 // jQuery events
 $(document).on('click', '#start-game', function(){
     printQuestions();
-    startTimer();
-    mainTimer();
+    // startTimer();
+    // mainTimer();
     console.log("game started!");
 });
 
-$(document).on('click', elements.pauseGame, function() {
-    clearInterval(timerS);
+$(document).on('click', elements.submitGame, function() {
+    isChecked();
 });
 
 $('.question-container').click(function() {
     if($('#answer-0').is(':checked')) { alert("it's checked"); }
  });
 
- $(document).on('click', function() {
-    if($("input:radio").is(':checked')) {
-        var id = $(this).attr('id');
-        console.log(id);
+
+var isChecked = function() {
+    for (i=0; i < questions.length; i++) {
+        var answerVal = parseInt(($('.radio-button-'+i + ':checked').val()));
+        console.log(typeof(answerVal));
+        if (questions[i].correctA == answerVal) {
+            correctQ++;
+        } else {
+            incorrectQ++;
+        }
     }
-})
-
-// https://codeburst.io/a-countdown-timer-in-pure-javascript-f3cdaae1a1a3
-
-
-// https://www.dyn-web.com/tutorials/forms/radio/get-selected.php
-
-
-
-//incorrect
-// for (var i = 0; i < 10; i++){
-//     setTimeout(function(){
-//         console.log(i);
-//     },i * 1000)
-// }
-
-// // correct solution
-// json.objects.forEach(function(obj,index,collection) {
-//     setTimeout(function(){
-//         console.log('foobar');
-//         self.insertDesignJsonObject(obj, index);
-//     }, index * 5000);
-// });
-
-// json.objects.forEach(function(obj, index) {
-//     setTimeout(function(){
-//       // do whatever
-//     }, 5000 * (index + 1));
-// });
+    console.log(correctQ);
+    console.log(incorrectQ);
+}
