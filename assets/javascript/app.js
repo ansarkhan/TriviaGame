@@ -73,6 +73,8 @@ var startTimer = function () {
 var reset = function() {
     isChecked();
     displayScore();
+    hideElements();
+    showElements();
 }
 var mainTimer = function() {
     setTimeout(reset, 5000);
@@ -108,6 +110,14 @@ var printQuestions = function() {
     });
 }
 
+var hideStartGameBtn = function() {
+    $('#start-game').hide();
+}
+
+var showSubmitButton =function() {
+    $('#submit').removeClass('hide-div');
+}
+
 
 // var displayTimer = function() {
 //     $("#timer").text(time);
@@ -120,6 +130,8 @@ $(document).on('click', '#start-game', function(){
     printQuestions();
     startTimer();
     mainTimer();
+    hideStartGameBtn();
+    showSubmitButton();
     console.log("game started!");
 });
 
@@ -149,4 +161,13 @@ var isChecked = function() {
 var displayScore = function() {
     $('#correct-a').append(correctQ);
     $('#incorrect-a').append(incorrectQ);
+}
+
+var hideElements = function() {
+    $(".section").hide();
+    $(".lead").hide();
+}
+
+var showElements = function() {
+    $('#score-div').removeClass('hide-div');
 }

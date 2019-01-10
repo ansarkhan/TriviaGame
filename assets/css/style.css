@@ -1,5 +1,5 @@
 body {
-    padding-top: 2rem;
+    padding-top: 1.5rem;
   }
   .starter-template {
     padding: 1rem 1rem;
@@ -11,6 +11,15 @@ body {
     text-align: center;
   }
 
+  .section-f {
+    padding: 1rem 1rem;
+    text-align: center;
+  }
+
   .answer-list {
     list-style-type: none;
+  }
+
+  .hide-div {
+    display: none;
   }
