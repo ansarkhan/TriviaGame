@@ -54,7 +54,7 @@ TIMERS
 var startTimer = function () {
 
     setInterval(calculate, 1000);
-    var time = 5;
+    var time = 90;
     function calculate() {
         if (time > 0) {
             time--;
@@ -77,7 +77,7 @@ var reset = function() {
     showElements();
 }
 var mainTimer = function() {
-    setTimeout(reset, 5000);
+    setTimeout(reset, 90000);
 }
 
 /*
@@ -114,7 +114,7 @@ var hideStartGameBtn = function() {
     $('#start-game').hide();
 }
 
-var showSubmitButton =function() {
+var showSubmitButton = function() {
     $('#submit').removeClass('hide-div');
 }
 
@@ -127,12 +127,12 @@ $("#score").append(counter);
 
 // jQuery events
 $(document).on('click', '#start-game', function(){
+    showGamePlayElements();
     printQuestions();
     startTimer();
     mainTimer();
     hideStartGameBtn();
     showSubmitButton();
-    console.log("game started!");
 });
 
 $(document).on('click', elements.submitGame, function() {
@@ -170,4 +170,11 @@ var hideElements = function() {
 
 var showElements = function() {
     $('#score-div').removeClass('hide-div');
+    $('.section-f').removeClass('hide-div');
+}
+
+var showGamePlayElements = function() {
+    $('#timer-container').removeClass('hide-div');
+    $('#question').removeClass('hide-div');
+
 }

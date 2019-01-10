@@ -8,33 +8,33 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
-    <title>Trivia Game!</title>
+    <title>Trivia Game</title>
 </head>
 <body>
         <main role="main" class="container">
 
             <div class="starter-template">
-                <h1>Totally Trivia Game</h1>
+                <h1>Totally Coding Trivia Game</h1>
                 <p class="lead">Instructions: You will have 90 seconds to answer all the questions. <br> Once you have answered all the questions or the timer is up, your score will be tabulated.</p>
                 <button type="button" class="btn btn-success" id="start-game">Start Game</button>
             </div>
             <div class="hide-div section-f" id="score-div">
-                Thanks for playing, see your scores below!
+                Thanks for playing, see your score below!
             </div>
-            <div class="section">
+            <div class="section hide-div" id="timer-container">
                 <h4>Time Remaining:</h4>
                 <p id="timer">0</p>
             </div>
-            <div class="section" id="question">
-                <h4>Question</h4>
+            <div class="section hide-div" id="question">
+                <h4>Questions</h4>
             </div>
             <div class="section hide-div" id="submit">
                 <button type="button" class="btn btn-primary" id="submit-game">Submit Answers!</button>
             </div>
-            <div class="section-f" id="correct-a">
+            <div class="section-f hide-div" id="correct-a">
                 <h4>Correct Answers:</h4>
             </div>
-            <div class="section-f" id="incorrect-a">
+            <div class="section-f hide-div" id="incorrect-a">
                 <h4>Incorrect Answers:</h4>
             </div>
 
