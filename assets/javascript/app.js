@@ -54,7 +54,7 @@ TIMERS
 var startTimer = function () {
 
     setInterval(calculate, 1000);
-    var time = 3;
+    var time = 5;
     function calculate() {
         if (time > 0) {
             time--;
@@ -71,10 +71,11 @@ var startTimer = function () {
 // Main SetTimeout
 
 var reset = function() {
-    console.log("hello");
+    isChecked();
+    displayScore();
 }
 var mainTimer = function() {
-    setTimeout(reset, 3000);
+    setTimeout(reset, 5000);
 }
 
 /*
@@ -117,13 +118,13 @@ $("#score").append(counter);
 // jQuery events
 $(document).on('click', '#start-game', function(){
     printQuestions();
-    // startTimer();
-    // mainTimer();
+    startTimer();
+    mainTimer();
     console.log("game started!");
 });
 
 $(document).on('click', elements.submitGame, function() {
-    isChecked();
+    reset();
 });
 
 $('.question-container').click(function() {
@@ -143,4 +144,9 @@ var isChecked = function() {
     }
     console.log(correctQ);
     console.log(incorrectQ);
+}
+
+var displayScore = function() {
+    $('#correct-a').append(correctQ);
+    $('#incorrect-a').append(incorrectQ);
 }
