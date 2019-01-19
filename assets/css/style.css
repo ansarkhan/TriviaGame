@@ -27,3 +27,7 @@ body {
   .hide-div-i {
     display: none;
   }
+
+  .question-container {
+    margin-bottom: 1.5rem;
+  }

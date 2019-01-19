@@ -64,7 +64,7 @@ TIMERS
 var startTimer = function () {
 
     setInterval(calculate, 1000);
-    var time = 90;
+    var time = 45;
     function calculate() {
         if (time > 0) {
             time--;
@@ -86,7 +86,7 @@ var reset = function() {
     showElements();
 }
 var mainTimer = function() {
-    setTimeout(reset, 90000);
+    setTimeout(reset, 45000);
 }
 
 /*
